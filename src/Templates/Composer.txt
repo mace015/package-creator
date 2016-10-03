@@ -1,0 +1,14 @@
+{
+    "name": "{{vendor-name}}/{{package-name}}",
+    "description": "{{package-description}}",
+    "authors": [
+        {
+            "name": "{{author-name}}",
+            "email": "{{author-email}}"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {"{{vendor-name}}\\{{namespace}}\\": "src/"}
+    }
+}

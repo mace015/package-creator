@@ -1,0 +1,14 @@
+{
+    "name": "muilman/package-creator",
+    "description": "Quickly create custom Laravel packages.",
+    "authors": [
+        {
+            "name": "Mace Muilman",
+            "email": "mace@macemuilman.nl"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {"Muilman\\PackageCreator\\": "src/"}
+    }
+}
