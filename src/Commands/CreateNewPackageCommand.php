@@ -41,7 +41,9 @@ class CreateNewPackageCommand extends Command {
             @$this->file->put($path . '/src/' . $namespace . 'ServiceProvider.php', $this->getServiceProvider($vendor, $namespace));
 
         } else {
+
             $this->error('Cancelled package creation.');
+            
         }
 
     }
