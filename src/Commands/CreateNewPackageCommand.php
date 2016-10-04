@@ -40,6 +40,26 @@ class CreateNewPackageCommand extends Command {
             @$this->file->put($path . '/composer.json', $this->getComposer($vendor, $package, $description, $namespace, $author, $email));
             @$this->file->put($path . '/src/' . $namespace . 'ServiceProvider.php', $this->getServiceProvider($vendor, $namespace));
 
+            if($this->confirm('Do you wish to start a git repository for this package? [yes|no]')){
+
+                exec('cd packages/'. ucfirst($vendor) .'/'. ucfirst($package) .' && git init');
+
+                $this->info('Git repository initialised.');
+
+                if ($this->confirm('Do you already have a remote repository for this package? [yes|no]')) {
+
+                    $git = $this->ask('What is the name of the remote repository? (Example: mace015/package-creator)');
+
+                    exec('cd packages/'. ucfirst($vendor) .'/'. ucfirst($package) .' && git remote add origin git@github.com:'. $git .'.git');
+
+                    $this->info('Remote repository added.');
+
+                }
+
+            }
+
+            $this->info('Your package has been created and is ready for use at /packages/'. ucfirst($vendor) .'/'. ucfirst($package));
+
         } else {
 
             $this->error('Cancelled package creation.');
