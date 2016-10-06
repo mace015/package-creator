@@ -22,10 +22,10 @@ class CreateNewPackageCommand extends Command {
         
         $this->info('Welcome to the package creation wizard, please fill in the questions below to generate your package!');
 
-        $vendor = $this->ask('What is your vendor name?');
-        $package = $this->ask('What is the name of your package?');
+        $vendor = $this->ask('What is your vendor name? (Example: Company name or your last name)');
+        $package = $this->ask('What is the name of your package? (Example: AwesomePackage)');
         $description = $this->ask('What is the description of your package?');
-        $namespace = $this->ask('What is the namespace of your package?');
+        $namespace = $this->ask('What is the namespace of your package? (Example: AwesomePackage)');
 
         $author = $this->ask('What is your name?');
         $email = $this->ask('What is your email?');
